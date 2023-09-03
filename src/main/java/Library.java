@@ -3,11 +3,9 @@ import java.util.Vector;
 import java.util.stream.IntStream;
 
 class Library {
-    @SuppressWarnings("FieldMayBeFinal")
-    private Vector<Member> MemberList;
+    private final Vector<Member> MemberList;
     private int MembersNumbers;
-    @SuppressWarnings("FieldMayBeFinal")
-    private Vector<Book> BookList;
+    private final Vector<Book> BookList;
     private int BookNumbers;
     Library(){
         this.MemberList = new Vector<>();

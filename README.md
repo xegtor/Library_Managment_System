@@ -42,7 +42,7 @@ This project is a Library Management System developed in Java. It is designed to
 
 ## How to Run the Project
 
-1. Clone this repository to your local machine.
+1. Extract the project from the zip file to your local machine.
 2. Open the project in your preferred Java development environment (e.g., Eclipse, IntelliJ).
 3. Build and run the project.
 4. Follow the on-screen instructions to interact with the Library Management System.
