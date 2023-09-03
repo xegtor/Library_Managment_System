@@ -1,12 +1,31 @@
 # Library Management System (Java)
 
-## Brief Overview
+
+## Table of Contents
+- [Brief Overview](#brief-overview)
+- [Classes and Methods](#classes-and-methods)
+  - [Library](#library)
+  - [Book](#book)
+  - [Member](#member)
+- [Classes and Their Relationships](#classes-and-their-relationships)
+    - [Composition](#composition)
+    - [Association](#association)
+    - [Dependency](#dependency)
+- [Basic Operations and Features](#basic-operations-and-features)
+- [How to Run the Project](#how-to-run-the-project)
+  - [Using the terminal](#using-the-terminal)
+  - [Using an Java development environment](#using-an-java-development-environment)
+
+<a name="brief-overview"></a>
+## [Brief Overview](#brief-overview)
 
 This project is a Library Management System developed in Java. It is designed to help libraries efficiently manage their resources, including books, members, and borrowing records. The system provides a user-friendly interface for librarians and members to perform various operations, making the process of library management more streamlined and organized.
 
-## Classes and Methods
+<a name="classes-and-methods"></a>
+## [Classes and Methods](#classes-and-methods)
 
-### 1. `Library`
+<a name="library"></a>
+### [Library](#library)
 
 **Attributes**:
 - `books: List<Book>`: A list that holds all the books in the library.
@@ -25,7 +44,8 @@ This project is a Library Management System developed in Java. It is designed to
 - `returnBook(Member member, Book book)`: Allows a member to return an issued book.
 - `listMembers()`: Displays a list of all library members along with their fines and issued books.
 
-### 2. `Book`
+<a name="book"></a>
+### [Book](#book)
 
 **Attributes**:
 - `title: String`: The title of the book.
@@ -43,7 +63,8 @@ This project is a Library Management System developed in Java. It is designed to
 - `getIssuedDate()`: returns the issued date of the book.
 - `setIssueDate(long issueDate)`: sets the issue date of the book.
 
-### 3. `Member`
+<a name="member"></a>
+### [Member](#member)
 
 **Attributes**:
 - `name: String`: The name of the library member.
@@ -63,10 +84,12 @@ This project is a Library Management System developed in Java. It is designed to
 - `setFine(int fine)`: Sets the fine of the member.
 - `updateFine()`: Update the fine of the user and returns the fine added.
 - `printIssuedBooks()`: Prints a list of the books the user has issued.
- 
-## Classes and Their Relationships
 
-### Composition
+<a name="classes-and-their-relationships"></a>
+## [Classes and Their Relationships](#classes-and-their-relationships)
+
+<a name="composition"></a>
+### [Composition](#composition)
 - The `Library` class has a composition relationship with the classes of `Book` and `Member` as it contains a list of `Book` objects and a list of `Member` objects where its functions call their respective getter and setter methods as shown by the code snippets below:
     - ```java
       // atributes of the `library` class which contain lists of `Book` and `Member` classes.
@@ -142,7 +165,8 @@ This project is a Library Management System developed in Java. It is designed to
         }else System.out.println("Invalid phone number(must be numeric as well as 10 digit)!");
       }
 
-### Association
+<a name="association"></a>
+### [Association](#association)
 - There is an Association relationship between the `Member` and `Book` classes as the class `Member` contains a list of `Book` objects and its functions call the getter functions of the class `Book` while not calling any setter functions as shown in the code snippet bellow.
   - ```java
     public int updateFine(Book temp) {
@@ -158,7 +182,8 @@ This project is a Library Management System developed in Java. It is designed to
         return 0;
     }
 
-### Dependency
+<a name="dependency"></a>
+### [Dependency](#dependency)
 - The `Library` class is Dependent on `java.util.stream.IntStream` as a function of `InstStream` is being used by library without forming an `IntStream` object as shown in the code snippet bellow.
   - ```java
     IntStream.range(0, copies).forEach(i -> {
@@ -167,7 +192,8 @@ This project is a Library Management System developed in Java. It is designed to
       BookList.add(book);
     });
 
-## Basic Operations and Features
+<a name="basic-operations-and-feature"></a>
+## [Basic Operations and Features](#basic-operations-and-features)
 
 - **Add Book**: Librarians can add new books to the library inventory.
 - **Remove Book**: Librarians can remove books from the library inventory.
@@ -180,9 +206,11 @@ This project is a Library Management System developed in Java. It is designed to
 - **List Members**: Librarians can see all the members with their issued books and fines in the library database.
 - **PayFine**: Members can pay their outstanding fines to the library.
 
-## How to Run the Project
+<a name="how-to-run-the-project"></a>
+## [How to Run the Project](#how-to-run-the-project)
 
-### Using the terminal
+<a name="using-the-terminal"></a>
+### [Using the terminal](#using-the-terminal)
 1. Extract the project from the zip file to your local machine.
 2. Open the terminal at `..\A1_2022412`.
 3. run the following terminal commands in order:
@@ -193,7 +221,8 @@ This project is a Library Management System developed in Java. It is designed to
    - `java -jar .\A1_2022412-1.0-SNAPSHOT.jar`
 4. To re-run it, you can simply enter `java -jar .\A1_2022412-1.0-SNAPSHOT.jar` if you are in the `..\A1_2022412\target` directory.
 
-### Using an Java development environment
+<a name="using-an-java-development-environment"></a>
+### [Using an Java development environment](#using-an-java-development-environment)
 1. Extract the project from the zip file to your local machine.
 2. Open the project in your preferred Java development environment (e.g., Eclipse, IntelliJ).
 3. Build and run the project.
