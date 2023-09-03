@@ -66,8 +66,86 @@ This project is a Library Management System developed in Java. It is designed to
  
 ## Classes and Their Relationships
 
-- The `Library` class contains a list of `Book` objects and a list of `Member` objects.
+### Composition
+- The `Library` class has a composition relationship with the classes of `Book` and `Member` as it contains a list of `Book` objects and a list of `Member` objects where its functions call their respective getter and setter methods as shown by the code snippets below:
+    - ```java
+      // atributes of the `library` class which contain lists of `Book` and `Member` classes.
+      private final Vector<Member> MemberList;
+      private int MembersNumbers;
+      private final Vector<Book> BookList;
+      private int BookNumbers;
+      
+    - ```java
+      // example of composition relationship between the `Library` and `Book` classes.
+      public void addBook(Scanner scanner){
+        System.out.print("Enter book title : ");
+        String name = scanner.nextLine();
+        if (name.isEmpty()){
+            System.out.println("A book cannot exist without a name! Try Again.");
+            return;
+        }
+        System.out.print("Enter author name : ");
+        String author = scanner.nextLine();
+        System.out.print("Enter number of copies of the book : ");
+        int copies;
+        do{
+            String line = scanner.nextLine();
+            try{
+                copies = Integer.parseInt(line);
+                if (copies > 0) break;
+                else System.out.println("Cannot have copies less than 0. Enter the number of copies : ");
+            }catch (Exception e){
+                System.out.print("This is not a valid number of copies! Please enter a valid a valid integer : ");
+            }
+        }while(true);
+        IntStream.range(0, copies).forEach(i -> {
+            BookNumbers++;
+            Book book = new Book(name, author, BookNumbers);
+            BookList.add(book);
+        });
+        System.out.println("All books were added successfully to the library.");
+      }
+    - ```java
+      // example of composition relationship between the `Library` and `Member` classes.
+      public void addMember(Scanner scanner){
+        System.out.print("Enter member name : ");
+        String name = scanner.nextLine();
+        if (name.isEmpty()){
+            System.out.println("A member cannot exist without a name! Try Again.");
+            return;
+        }
+        System.out.print("Enter phone number : ");
+        String phoneNumber = scanner.nextLine();
+        System.out.print("Enter age : ");
+        int age;
+        do{
+            String line = scanner.nextLine();
+            try{
+                age = Integer.parseInt(line);
+                if(age > 0) break;
+                else System.out.print("Please enter a valid age!\nage : ");
+            }catch (Exception e){
+                System.out.print("This is not a valid age! Please enter a valid age : ");
+            }
+        }while(true);
+        if(isValidPhoneNumber(phoneNumber)){
+            for(Member member : MemberList){
+                if(phoneNumber.equals(member.getPhoneNumber())){
+                    System.out.println("A person with this phone number is already registered!");
+                    return;
+                }
+            }
+            MembersNumbers++;
+            Member member = new Member(name, age, phoneNumber, MembersNumbers);
+            MemberList.add(member);
+            System.out.println("Member successfully registered.");
+        }else System.out.println("Invalid phone number(must be numeric as well as 10 digit)!");
+      }
+
+### Association
 - Each `Book` is associated with a unique ISBN.
+
+### Dependency
 - Each `Member` can borrow multiple books.
 
 ## Basic Operations and Features
@@ -88,12 +166,12 @@ This project is a Library Management System developed in Java. It is designed to
 ### Using the terminal
 1. Extract the project from the zip file to your local machine.
 2. Open the terminal at `..\A1_2022412`.
-3. run the following terminal commands in order:<br>
--`mvn clean`<br>
--`mvn compile`<br>
--`mvn package`<br>
--`cd target`<br>
--`java -jar .\A1_2022412-1.0-SNAPSHOT.jar`
+3. run the following terminal commands in order:
+   - `mvn clean`
+   - `mvn compile`
+   - `mvn package`
+   - `cd target`
+   - `java -jar .\A1_2022412-1.0-SNAPSHOT.jar`
 4. To re-run it, you can simply enter `java -jar .\A1_2022412-1.0-SNAPSHOT.jar` if you are in the `..\A1_2022412\target` directory.
 
 ### Using an Java development environment
