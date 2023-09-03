@@ -143,10 +143,29 @@ This project is a Library Management System developed in Java. It is designed to
       }
 
 ### Association
-- Each `Book` is associated with a unique ISBN.
+- There is an Association relationship between the `Member` and `Book` classes as the class `Member` contains a list of `Book` objects and its functions call the getter functions of the class `Book` while not calling any setter functions as shown in the code snippet bellow.
+  - ```java
+    public int updateFine(Book temp) {
+        for (Book i : IssuedBooks) {
+            if (i.getBookID() != temp.getBookID()) continue;
+            IssuedBooks.remove(i);
+            long currentTime = System.currentTimeMillis();
+            if((currentTime - temp.getIssueDate())/1000 > 10){
+                fine += (int) (((currentTime - temp.getIssueDate())/1000 - 10)*3);
+                return (int) (((currentTime - temp.getIssueDate())/1000 - 10)*3);
+            }
+        }
+        return 0;
+    }
 
 ### Dependency
-- Each `Member` can borrow multiple books.
+- The `Library` class is Dependent on `java.util.stream.IntStream` as a function of `InstStream` is being used by library without forming an `IntStream` object as shown in the code snippet bellow.
+  - ```java
+    IntStream.range(0, copies).forEach(i -> {
+      BookNumbers++;
+      Book book = new Book(name, author, BookNumbers);
+      BookList.add(book);
+    });
 
 ## Basic Operations and Features
 
