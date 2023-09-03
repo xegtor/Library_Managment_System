@@ -81,7 +81,7 @@ This project is a Library Management System developed in Java. It is designed to
 - **Borrow Book**: Members can borrow books from the library.
 - **Return Book**: Members can return borrowed books to the library.
 - **List Members**: Librarians can see all the members with their issued books and fines in the library database.
-- 
+- **PayFine**: Members can pay their outstanding fines to the library.
 
 ## How to Run the Project
 
