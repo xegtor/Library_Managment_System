@@ -74,9 +74,14 @@ This project is a Library Management System developed in Java. It is designed to
 
 - **Add Book**: Librarians can add new books to the library inventory.
 - **Remove Book**: Librarians can remove books from the library inventory.
-- **List Books**: Librarians and members can view a list of all available books.
+- **Register Member**: Allows the librarian to add a new member to the library database.
+- **Remove Member**: Allows the librarians to remove  a member from the library database.
+- **List Books**: Librarians can view a list of all books owned by the library.
+- **List Available Books**: Members can view all the books they can issue from the library.
 - **Borrow Book**: Members can borrow books from the library.
 - **Return Book**: Members can return borrowed books to the library.
+- **List Members**: Librarians can see all the members with their issued books and fines in the library database.
+- 
 
 ## How to Run the Project
 

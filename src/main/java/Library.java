@@ -45,6 +45,10 @@ class Library {
     public void addMember(Scanner scanner){
         System.out.print("Enter member name : ");
         String name = scanner.nextLine();
+        if (name.isEmpty()){
+            System.out.println("A member cannot exist without a name! Try Again.");
+            return;
+        }
         System.out.print("Enter phone number : ");
         String phoneNumber = scanner.nextLine();
         System.out.print("Enter age : ");
@@ -100,6 +104,10 @@ class Library {
     public void addBook(Scanner scanner){
         System.out.print("Enter book title : ");
         String name = scanner.nextLine();
+        if (name.isEmpty()){
+            System.out.println("A book cannot exist without a name! Try Again.");
+            return;
+        }
         System.out.print("Enter author name : ");
         String author = scanner.nextLine();
         System.out.print("Enter number of copies of the book : ");
