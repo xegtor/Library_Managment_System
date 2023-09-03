@@ -49,12 +49,21 @@ This project is a Library Management System developed in Java. It is designed to
 - `name: String`: The name of the library member.
 - `id: int`: A unique identification number for the member.
 - `borrowedBooks: List<Book>`: A list of books currently borrowed by the member.
+- `PhoneNumber: String`: The phone number of the member.
+- `Fine: int`: The amount of money the member ows to the library.
 
 **Methods**:
-- `borrowBook(Book book)`: Allows a member to borrow a book.
-- `returnBook(Book book)`: Allows a member to return a borrowed book.
-- `getBorrowedBooks()`: Returns a list of books borrowed by the member.
-
+- `getIssuedBooks()`: Returns a list of books issued by the member.
+- `getMemberID()`: Returns the ID of the member.
+- `getAge()`: Returns the age of the member.
+- `getName()`: Returns the name of the member.
+- `getPhoneNumber()`: Returns the phone number of the member.
+- `getFine()`: Returns the amount of money the member ows to the library.
+- `setIssuedBooks(Vector<Book> issuedBooks)`: Sets the list of books that the member has issued from the library.
+- `setFine(int fine)`: Sets the fine of the member.
+- `updateFine()`: Update the fine of the user and returns the fine added.
+- `printIssuedBooks()`: Prints a list of the books the user has issued.
+ 
 ## Classes and Their Relationships
 
 - The `Library` class contains a list of `Book` objects and a list of `Member` objects.
@@ -65,7 +74,6 @@ This project is a Library Management System developed in Java. It is designed to
 
 - **Add Book**: Librarians can add new books to the library inventory.
 - **Remove Book**: Librarians can remove books from the library inventory.
-- **Find Book**: Librarians and members can search for books by title.
 - **List Books**: Librarians and members can view a list of all available books.
 - **Borrow Book**: Members can borrow books from the library.
 - **Return Book**: Members can return borrowed books to the library.
