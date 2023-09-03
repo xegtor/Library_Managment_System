@@ -174,6 +174,20 @@ class Library {
             System.out.println("This book is already issued.");
             return;
         }
+        Member mem = MemberList.get(memberListIndex);
+        if(!mem.getIssuedBooks().isEmpty()){
+            Book b = mem.getIssuedBooks().get(0);
+            for(Book i : BookList){
+                if (b.getBookID() == i.getBookID()){
+                    long t = System.currentTimeMillis()/1000;
+                    long is = i.getIssueDate()/1000;
+                    if(t-is > 10){
+                        System.out.println("Your issued book has exceeded its 10 day limit please return it and pay the fine before issuing another book.");
+                        return;
+                    }
+                }
+            }
+        }
         for(int i = 0; i < BookList.size(); i++){
             if(BookList.get(i).getBookID() == bookID && !(BookList.get(i).getIssued())){
                 Book temp = BookList.get(i);
